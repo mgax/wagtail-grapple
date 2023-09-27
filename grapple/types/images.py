@@ -150,7 +150,7 @@ class ImageObjectType(DjangoObjectType):
                 "Invalid filter specs. Check the `ALLOWED_IMAGE_FILTERS` setting."
             )
 
-        if WAGTAIL_VERSION > (5, 0) and instance.is_svg() and preserve_svg:
+        if instance.is_svg() and preserve_svg:
             # when dealing with SVGs, we want to limit the filter specs to those that are safe
             filter_specs = to_svg_safe_spec(filter_specs)
 
